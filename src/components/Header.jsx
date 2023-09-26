@@ -1,11 +1,18 @@
+/* eslint-disable react/prop-types */
 import '../styles/Header.css'
 
-// eslint-disable-next-line react/prop-types
-export default function Header({score, bestScore}) {
+export default function Header({
+    score,
+    bestScore
+}) {
     
     return (
         <div id="header">
-            <h1>Memory Card</h1>
+            <div id="title-icon">
+                <h1>Memory Card</h1>
+                <img src="src/assets/pokemon.svg" alt="" />
+            </div>
+            
 
             <div id="scoreboard">
                 <p>Score: <span>{score}</span></p>

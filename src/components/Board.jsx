@@ -1,55 +1,69 @@
-import { useEffect, useState } from 'react';
+/* eslint-disable react/prop-types */
 import Card from './Card';
 import '../styles/Board.css';
 
-// eslint-disable-next-line react/prop-types
-export default function Board({score, bestScore, numberOfCards, clicked, setClicked}) {
-    const [board, setBoard] = useState([]);
-
-    const POSSIBLE_POKEMONS = 721;
-
-    const getRandomID = () => {
-        return Math.floor(Math.random() * POSSIBLE_POKEMONS) + 1;
-    };
-
-    async function getPokemon(id) {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        const data = await response.json();
-
-        return {
-            id: id,
-            name: data.name,
-            imgURL: data.sprites.other[`official-artwork`].front_default
-        };
-    }
-
-    async function loadBoard() {
-        let temp = [];
-        
-        for ( let i = 0; i < numberOfCards; i++) {
-            const number = getRandomID();
-            const pokemon = await getPokemon(number);
-            console.log(pokemon);
-            temp[i] = pokemon;
-        }
-
-        setBoard(temp);
-    }
+export default function Board({
+    board,
+    setScore,
+    score,
+    setBestScore,
+    isGameOver,
+    setIsGameOver,
+    mixBoard,
+    isLoading
+}) {
 
 
-    
 
-    useEffect(() => {
-        loadBoard();
-    }, []);
-    
     return (
-        <div id="board">
-            {board.map((card) => {
-                return (
-                    <Card key={card.id} imgURL={card.imgURL} title={card.name}/>
-                );
-            })}
-        </div>
+        <>
+            <div 
+                id="board"
+                style={{
+                    display: isLoading ? "none" : "grid"
+                }}
+            >
+                
+                {board.map((card) => {
+                    return (
+                        <Card
+                            key={card.id}
+                            id={card.id}
+                            imgURL={card.imgURL}
+                            title={card.name}
+                            setBestScore={setBestScore}
+                            setScore={setScore}
+                            score={score}
+                            isGameOver={isGameOver}
+                            setIsGameOver={setIsGameOver}
+                            mixBoard={mixBoard}
+                        />
+                    );
+                })}
+
+            </div>
+
+            <div
+                id="loading-svg"
+                style={{
+                    display: isLoading ? "flex" : "none"
+                }}
+            >
+                <svg width="100px" version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 100 100" enableBackground="new 0 0 0 0" xmlSpace="preserve">
+                        <path fill="#fff" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                        <animateTransform 
+                            attributeName="transform" 
+                            attributeType="XML" 
+                            type="rotate"
+                            dur="1s" 
+                            from="0 50 50"
+                            to="360 50 50" 
+                            repeatCount="indefinite" />
+                    </path>
+                </svg>
+            </div>
+
+        </>
     );
 }
