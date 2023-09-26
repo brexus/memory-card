@@ -10,7 +10,9 @@ export default function Board({
     isGameOver,
     setIsGameOver,
     mixBoard,
-    isLoading
+    isLoading,
+    isMixing,
+    setIsMixing
 }) {
 
 
@@ -37,6 +39,9 @@ export default function Board({
                             isGameOver={isGameOver}
                             setIsGameOver={setIsGameOver}
                             mixBoard={mixBoard}
+                            isLoading={isLoading}
+                            isMixing={isMixing}
+                            setIsMixing={setIsMixing}
                         />
                     );
                 })}
