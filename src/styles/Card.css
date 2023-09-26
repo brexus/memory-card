@@ -35,3 +35,11 @@
     justify-content: center;
     align-items: center;
 }
+
+@media only screen and (max-width: 510px) { 
+    .card {
+        width: 170px;
+        height: 230px;
+    }
+
+}
