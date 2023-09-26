@@ -10,7 +10,7 @@ export default function Header({
         <div id="header">
             <div id="title-icon">
                 <h1>Memory Card</h1>
-                <img src="public/pokemon.svg" alt="" />
+                <img src="pokemon.svg" alt="" />
             </div>
             
 
