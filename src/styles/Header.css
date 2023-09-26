@@ -7,3 +7,14 @@
     /* padding: 1rem; */
     margin-bottom: 50px;
 }
+
+#title-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#title-icon > img {
+    margin-left: 6px;
+}
