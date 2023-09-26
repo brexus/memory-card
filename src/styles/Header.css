@@ -15,6 +15,29 @@
     align-items: center;
 }
 
+#title-icon > h1 {
+    font-size: 2.7rem;
+}
+
 #title-icon > img {
     margin-left: 6px;
+}
+
+#scoreboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(51, 51, 51);
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+#scoreboard > p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#scoreboard > p > span {
+    color: red;
 }
