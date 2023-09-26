@@ -11,6 +11,8 @@ export default function App() {
     const [numberOfCards, setNumberOfCards] = useState(6);
     const [isLoading, setIsLoading] = useState(true);
 
+    const [isMixing, setIsMixing] = useState(false);
+
     const [board, setBoard] = useState([]);
     
 
@@ -74,6 +76,7 @@ export default function App() {
             if(score > bestScore) setBestScore(score);
             setScore(0);
             loadBoard();
+            setIsGameOver(false);
         }
     }, [isGameOver]);
 
@@ -94,7 +97,8 @@ export default function App() {
                 setIsGameOver={setIsGameOver}
                 mixBoard={mixBoard}
                 isLoading={isLoading}
-
+                isMixing={isMixing}
+                setIsMixing={setIsMixing}
             />
         </>
     );
