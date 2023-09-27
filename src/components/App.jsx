@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import '../styles/App.css'
 import Header from './Header'
 import Board from './Board';
+import Footer from './Footer';
 
 export default function App() {
     const [score, setScore] = useState(0);
@@ -101,6 +102,8 @@ export default function App() {
                 setIsMixing={setIsMixing}
                 numberOfCards={numberOfCards}
             />
+
+            <Footer />
         </>
     );
 }
