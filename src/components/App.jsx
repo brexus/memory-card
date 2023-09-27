@@ -8,7 +8,7 @@ export default function App() {
     const [bestScore, setBestScore] = useState(0);
     const [isGameOver, setIsGameOver] = useState(false);
     // eslint-disable-next-line no-unused-vars
-    const [numberOfCards, setNumberOfCards] = useState(6);
+    const [numberOfCards, setNumberOfCards] = useState(10);
     const [isLoading, setIsLoading] = useState(true);
 
     const [isMixing, setIsMixing] = useState(false);
@@ -99,6 +99,7 @@ export default function App() {
                 isLoading={isLoading}
                 isMixing={isMixing}
                 setIsMixing={setIsMixing}
+                numberOfCards={numberOfCards}
             />
         </>
     );
