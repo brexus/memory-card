@@ -6,12 +6,14 @@ export default function Card({
     id, 
     imgURL, 
     title,
+    score,
     setScore,
     setIsGameOver,
     mixBoard,
     isLoading,
     isMixing,
-    setIsMixing
+    setIsMixing,
+    numberOfCards
 }) {
 
     const [isCardClicked, setIsCardClicked] = useState(false);
@@ -19,8 +21,15 @@ export default function Card({
     useEffect(() => {
         if(isCardClicked) {
             setScore(s => s + 1);
-            mixBoard(); 
-            // setIsMixing(false);
+            
+            if(score + 1 === numberOfCards) {
+                setIsGameOver(true);
+            } else {
+                mixBoard();
+            }
+            setIsMixing(true);
+            setTimeout(() => {setIsMixing(false)}, 1000);
+            
         }
 
     }, [isCardClicked]);
@@ -32,19 +41,39 @@ export default function Card({
             onClick={() => {
                 if(!isCardClicked) {
                     setIsCardClicked(true);
-                    // setIsMixing(true);
                 } else {
                     setIsGameOver(true);
                 }
             }}
 
-            // style={{
-            //     transform: isMixing ? "rotate3d(0, 1, 0, 180deg)" : "rotate3d(0, 0, 0, 0deg)",
-            //     transition: isMixing ? "0.5s" : "0.5s"
-            // }}
+            style={{
+                transform: isMixing ? "rotateY(180deg)" : "",
+                transition: isMixing ? "0.3s" : "0.3s",
+            }}
         >
-            <img src={imgURL} alt="" className="card-img"/>
-            <h1 className="card-title">{title}</h1>
+            <img 
+                src={imgURL} 
+                alt="" 
+                className="card-img"
+                style={{display: isMixing ? "none" : "flex"}}
+            />
+
+            <h1 
+                className="card-title"
+                style={{display: isMixing ? "none" : "flex"}}
+            >
+                {title}
+            </h1>
+
+            <img 
+                src="pokeball.png" 
+                style={{
+                    width: "100px",
+                    display: isMixing ? "flex" : "none",
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}
+            />
         </div>
     );
 }
