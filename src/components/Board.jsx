@@ -12,10 +12,9 @@ export default function Board({
     mixBoard,
     isLoading,
     isMixing,
-    setIsMixing
+    setIsMixing,
+    numberOfCards
 }) {
-
-
 
     return (
         <>
@@ -42,10 +41,10 @@ export default function Board({
                             isLoading={isLoading}
                             isMixing={isMixing}
                             setIsMixing={setIsMixing}
+                            numberOfCards={numberOfCards}
                         />
                     );
                 })}
-
             </div>
 
             <div
@@ -68,7 +67,6 @@ export default function Board({
                     </path>
                 </svg>
             </div>
-
         </>
     );
 }
