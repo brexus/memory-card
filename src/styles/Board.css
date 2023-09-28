@@ -1,11 +1,12 @@
 #board {
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
     gap: 30px;
     justify-self: center;
     align-self: center;
     padding: 2rem;
+    margin-top: 100px;
 }
 
 #loading-svg {
