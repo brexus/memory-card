@@ -4,16 +4,19 @@ import Header from './Header'
 import Board from './Board';
 import Footer from './Footer';
 import Information from './Information';
+import GameOver from './GameOver';
 
 export default function App() {
     const [score, setScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
     const [isGameOver, setIsGameOver] = useState(false);
+    const [isWin, setIsWin] = useState(false);
+
     // eslint-disable-next-line no-unused-vars
     const [numberOfCards, setNumberOfCards] = useState(10);
     const [isLoading, setIsLoading] = useState(true);
 
-    const [isMixing, setIsMixing] = useState(false);
+    const [isFrontSide, setIsFrontSide] = useState(true);
 
     const [board, setBoard] = useState([]);
     
@@ -77,8 +80,6 @@ export default function App() {
         if(isGameOver) {
             if(score > bestScore) setBestScore(score);
             setScore(0);
-            loadBoard();
-            setIsGameOver(false);
         }
     }, [isGameOver]);
 
@@ -93,15 +94,25 @@ export default function App() {
             <Board
                 board={board}
                 setScore={setScore}
+                bestScore={bestScore}
                 score={score}
                 setBestScore={setBestScore}
                 isGameOver={isGameOver}
                 setIsGameOver={setIsGameOver}
                 mixBoard={mixBoard}
                 isLoading={isLoading}
-                isMixing={isMixing}
-                setIsMixing={setIsMixing}
+                isFrontSide={isFrontSide}
+                setIsFrontSide={setIsFrontSide}
                 numberOfCards={numberOfCards}
+                setIsWin={setIsWin}
+            />
+
+            <GameOver
+                loadBoard={loadBoard}
+                setIsGameOver={setIsGameOver}
+                isGameOver={isGameOver}
+                setIsFrontSide={setIsFrontSide}
+                isWin={isWin}
             />
 
             <Information />

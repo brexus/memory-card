@@ -1,0 +1,41 @@
+#gameOver {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: min(190px, 100%);
+    background-color: rgb(20, 20, 20);
+    padding: 40px 30px;
+    border-radius: 20px;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameOver-title {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#gameOver-btn {
+    font-size: 1rem;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#gameOver-btn:hover {
+    color: rgb(20, 20, 20);
+    background-color: white;
+    transition: 0.3s;
+    
+}
+
+#gameOver-btn:focus,
+#gameOver-btn:focus-visible {
+  outline: 0;
+}
