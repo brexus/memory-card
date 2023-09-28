@@ -3,6 +3,7 @@ import '../styles/App.css'
 import Header from './Header'
 import Board from './Board';
 import Footer from './Footer';
+import Information from './Information';
 
 export default function App() {
     const [score, setScore] = useState(0);
@@ -102,6 +103,8 @@ export default function App() {
                 setIsMixing={setIsMixing}
                 numberOfCards={numberOfCards}
             />
+
+            <Information />
 
             <Footer />
         </>
