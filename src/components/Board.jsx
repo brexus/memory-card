@@ -7,13 +7,15 @@ export default function Board({
     setScore,
     score,
     setBestScore,
+    bestScore,
     isGameOver,
     setIsGameOver,
     mixBoard,
     isLoading,
-    isMixing,
-    setIsMixing,
-    numberOfCards
+    isFrontSide,
+    setIsFrontSide,
+    numberOfCards,
+    setIsWin
 }) {
 
     return (
@@ -21,7 +23,8 @@ export default function Board({
             <div 
                 id="board"
                 style={{
-                    display: isLoading ? "none" : "grid"
+                    display: isLoading || isGameOver ? "none" : "grid"
+                    
                 }}
             >
                 
@@ -33,15 +36,17 @@ export default function Board({
                             imgURL={card.imgURL}
                             title={card.name}
                             setBestScore={setBestScore}
+                            bestScore={bestScore}
                             setScore={setScore}
                             score={score}
                             isGameOver={isGameOver}
                             setIsGameOver={setIsGameOver}
                             mixBoard={mixBoard}
                             isLoading={isLoading}
-                            isMixing={isMixing}
-                            setIsMixing={setIsMixing}
+                            isFrontSide={isFrontSide}
+                            setIsFrontSide={setIsFrontSide}
                             numberOfCards={numberOfCards}
+                            setIsWin={setIsWin}
                         />
                     );
                 })}
