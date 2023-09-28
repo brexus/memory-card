@@ -3,13 +3,12 @@ import { useEffect, useState } from 'react';
 import '../styles/Card.css';
 
 export default function Card({
+    // eslint-disable-next-line no-unused-vars
     id, 
     imgURL, 
     title,
     score,
     setScore,
-    bestScore,
-    setBestScore,
     setIsGameOver,
     mixBoard,
     isFrontSide,
